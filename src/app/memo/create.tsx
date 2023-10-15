@@ -3,17 +3,21 @@ import {
 } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 
-import Header from '../../components/Header'
+import { router } from 'expo-router'
+
 import CircleButton from '../../components/CircleButton'
+
+const handlePress = (): void => {
+  router.back()
+}
 
 const Create = (): JSX.Element => {
   return (
     <KeyboardAvoidingView behavior='height' style={styles.container}>
-      <Header />
       <View style={styles.inputContainer}>
         <TextInput multiline style={styles.input} value=''/>
       </View>
-      <CircleButton>
+      <CircleButton onPress={handlePress}>
         <Feather name='check' size={40} />
       </CircleButton>
     </KeyboardAvoidingView>
